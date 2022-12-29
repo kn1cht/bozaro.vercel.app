@@ -8,7 +8,7 @@ const App = ({ Component, pageProps }) => (
     <Head>
       <title>btr</title>
       <meta name="description" content="いいいいイキってすみません…" />
-      <meta property="og:url" content="http://btr.vercel.app" />
+      <meta property="og:url" content="http://bozaro.vercel.app" />
       <meta property="og:title" content="btr" />
       <meta property="og:site_name" content="btr" />
       <meta property="og:type" content="website" />

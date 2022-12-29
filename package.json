@@ -1,9 +1,10 @@
 {
   "name": "btr",
-  "description": "btr.vercel.app",
+  "description": "bozaro.vercel.app",
   "version": "1.0.0",
   "dependencies": {
     "bulma": "^0.9.3",
+    "js-yaml-loader": "^1.2.2",
     "next": "12.0.8",
     "normalize.css": "^8.0.1",
     "react": "17.0.2",

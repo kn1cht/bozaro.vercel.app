@@ -1,69 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/App.module.scss'
+import config from '../configs/config.yaml'
 
-const items = [
-  {
-    id: 0,
-    word: 'だいじょうぶ',
-    image: 'https://pbs.twimg.com/media/FejlYgRVsAAbKxY.jpg:medium',
-    src: 'pic.twitter.com/YMYv8PYbX6'
-  },
-  {
-    id: 1,
-    word: 'すみません',
-    image: 'https://pbs.twimg.com/media/FejnL6DUcAEKWLz.jpg:medium',
-    src: 'pic.twitter.com/LfpCuQtsC0'
-  },
-];
 const App = () => {
-  const [url, setUrl] = useState('https://pbs.twimg.com/media/FejnL6DUcAEKWLz.jpg:medium');
-  const [text, setText] = useState('すみません');
-  const [src, setSrc] = useState('pic.twitter.com/YMYv8PYbX6');
+  const [url, setUrl] = useState('');
+  const [text, setText] = useState('');
+  const [src, setSrc] = useState('');
   const [isOpened, setIsOpened] = useState(false);
 
   const refreshBtr = () => {
-    const item = items[Math.floor(Math.random() * items.length)];
+    const item = config.items[Math.floor(Math.random() * config.items.length)];
     setUrl(item.image);
     setSrc(item.src);
     setText(item.word);
     return ('');
   };
   const selectBtr = (id) => {
-    const item = items[id];
+    const item = config.items.find(v => v.id == id);
     setUrl(item.image);
     setSrc(item.src);
     setText(item.word);
-    setIsOpened(false);
     return ('');
   };
   const switchSidebar = () => {
     setIsOpened(!isOpened);
   };
-  const imgList = items.map((item) => {
-    <img src={item.image} onClick={() => selectBtr(item.id)} className={styles.select_img} key={item.id} />
-  })
+  useEffect(() => refreshBtr(), []);
+  const imgList = config.items.map((item) => {
+    return <img src={`${item.image}:small`} onClick={() => selectBtr(item.id)} className={styles.select_img} key={item.id} />
+  });
+  console.log(imgList);
 
   return (
     <>
-      <div style={{zIndex: 2}}>
-        <span>
-          <button onClick={switchSidebar}
-                  className={`${styles.select_arrow} ${styles.plain_button} ${isOpened ? styles.arrow_slide : ''} ${styles.btrcolor}`}>
-            <span className="fa-stack fa-2x">
-              <i className="far fa-square fa-stack-2x"></i>
-              {isOpened ? (
-                  <i className={'fa fa-stack-1x fa-chevron-left'}></i>
-                ) : (
-                  <i className={'fa fa-stack-1x fa-chevron-right'}></i>
-                )
-              }
-            </span>
-          </button>
-        </span>
-        <div className={`${styles.sidebar} ${isOpened ? styles.slide_out : ''}`}>
-          { imgList }
-        </div>
-      </div>
       <div className="container">
         <header>
           <h1 className="has-text-centered">
@@ -77,7 +46,7 @@ const App = () => {
           <div className="column is-three-quarters-desktop is-two-thirds-tablet  is-full-mobile card">
             <div className="card-image">
               <figure className="image">
-                <img src={url} />
+                <img src={`${url}:medium`} />
               </figure>
             </div>
             <div className="card-content columns is-centered is-mobile m-5">
@@ -88,7 +57,7 @@ const App = () => {
                 </span>
                 &nbsp;&nbsp;
               </span>
-              <a href={`https://twitter.com/intent/tweet?hashtags=ぼっち・ざ・ろっく！&url=http://btr.vercel.app&text=${src}`}
+              <a href={`https://twitter.com/intent/tweet?hashtags=ぼっち・ざ・ろっく！&url=${config.appurl}&text=${src}`}
                  className="icon-text is-size-4" style={{color: '#1da1f2'}}
                  target="_blank" rel="noopener noreferrer">
                 <span className="icon">
@@ -114,6 +83,23 @@ const App = () => {
             </h3>
           </div>
         </footer>
+      </div>
+      <div>
+        <button onClick={switchSidebar}
+                className={`${styles.select_arrow} ${styles.plain_button} ${isOpened ? styles.arrow_slide : ''} ${styles.btrcolor}`}>
+          <span className="fa-stack fa-2x">
+            <i className="far fa-square fa-stack-2x"></i>
+            {isOpened ? (
+                <i className={'fa fa-stack-1x fa-chevron-left'}></i>
+              ) : (
+                <i className={'fa fa-stack-1x fa-chevron-right'}></i>
+              )
+            }
+          </span>
+        </button>
+        <div className={`${styles.sidebar} ${isOpened ? styles.slide_out : ''}`}>
+          { imgList }
+        </div>
       </div>
     </>
   )

@@ -1,6 +1,6 @@
 # btr
 
-## <a href="http://btr.vercel.app">btr.vercel.app</a>
+## <a href="http://bozaro.vercel.app">bozaro.vercel.app</a>
 
 ## Install
 
