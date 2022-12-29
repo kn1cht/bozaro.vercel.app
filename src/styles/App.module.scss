@@ -1,0 +1,77 @@
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.btrcolor {
+  color: #f3538e;
+}
+
+.plain_button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  appearance: none;
+}
+
+.select_arrow {
+  transition: left .1s;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 20px 0 0 20px;
+}
+
+.arrow_slide {
+  -moz-transition: left .5s;
+  -webkit-transition: left .5s;
+  -o-transition: left .5s;
+  transition: left .5s;
+  left: 260px;
+}
+
+.sidebar {
+  -moz-transition: left .1s;
+  -webkit-transition: left .1s;
+  -o-transition: left .1s;
+  transition: left .1s;
+  width: 260px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: -260px;
+  z-index: 999;
+  max-height: 1690px;
+  overflow-y: scroll;
+}
+
+.slide_out {
+  -moz-transition: left .5s;
+  -webkit-transition: left .5s;
+  -o-transition: left .5s;
+  transition: left .5s;
+  padding: 10px 0;
+  left: 0px;
+}
+
+.select_img {
+  display: inline-block;
+  cursor: pointer;
+  width: 40%;
+  height: 70px;
+  margin: 5%;
+}
