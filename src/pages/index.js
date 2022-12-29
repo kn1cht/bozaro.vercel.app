@@ -29,7 +29,6 @@ const App = () => {
   const imgList = config.items.map((item) => {
     return <img src={`${item.image}:small`} onClick={() => selectBtr(item.id)} className={styles.select_img} key={item.id} />
   });
-  console.log(imgList);
 
   return (
     <>
