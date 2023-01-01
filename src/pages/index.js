@@ -41,23 +41,23 @@ const App = () => {
             </button>
           </h1>
         </header>
-        <main className="block p-4 m-4 columns is-mobile is-centered is-3">
+        <main className="block p-3 mx-2 my-4 columns is-mobile is-centered is-3">
           <div className="column is-three-quarters-desktop is-two-thirds-tablet  is-full-mobile card">
             <div className="card-image">
               <figure className="image">
                 <img src={`${url}:medium`} />
               </figure>
             </div>
-            <div className="card-content columns is-centered is-mobile m-5">
-              <span className="icon-text is-size-3">
+            <div className="card-content columns is-centered is-mobile mx-1 my-4 px-1 py-3">
+              <span className="icon-text is-size-3 is-size-4-mobile">
                 <span>{text}&nbsp;</span>
-                <span className="icon  is-size-4">
+                <span className="icon  is-size-4 is-size-5-mobile">
                   <i className="fa fa-chevron-right"></i>
                 </span>
                 &nbsp;&nbsp;
               </span>
               <a href={`https://twitter.com/intent/tweet?hashtags=ぼっち・ざ・ろっく！&url=${config.appurl}&text=${src}`}
-                 className="icon-text is-size-4" style={{color: '#1da1f2'}}
+                 className="icon-text is-size-4 is-size-5-mobile" style={{color: '#1da1f2'}}
                  target="_blank" rel="noopener noreferrer">
                 <span className="icon">
                   <i className="fab fa-twitter"></i>
